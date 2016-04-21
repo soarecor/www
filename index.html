@@ -216,18 +216,14 @@ s.on("click", function(e) {
 		stage.update();
 	});
 
-	// var text = new createjs.Text("check", "60px arial", "white");
-
-
 stage.addEventListener("click", function(ev){
 	if (check.length==0){
 		setTimeout(function(){
-			text.alpha=0;}
+			stage.removeChild(pane2)}
 		, 2000);
 	}
 });
 
-var text = new zim.Label("check", 100, "arial", "white");
 var explanation= "Spell hello in the right order to win";
 var dialog;
 
@@ -238,46 +234,25 @@ var dialog;
 		console.log(array.toString());
 		console.log("won!");
 		check.length=0;
-		text.text="won!";
-		text.alpha=1;
 		createPane("won")
 	}
 	else if (check.toString()!=array.toString()){
 		console.log(check.toString());
 		console.log(array.toString());
 		console.log("lost");
-		text.alpha=1;
 		check.length=0;
-		var pane2 = new zim.Pane(stage, 600, 800, dialog, "white");
 		createPane("lost");
 	}
 	}
 }
 
+var pane2;
+
 function createPane(dialog){
-	var pane2 = new zim.Pane(stage, 600, 800, dialog, "white");
-	pane2.show();
+	pane2 = new zim.Pane(stage, 200, 200, dialog, "white");
 	textbox.addChildAt(pane2,0);
-
-	mobile.swipe(pane2);
-	pane2.on("swipe", function(e) {
-		var newX = pane2.x+e.swipeX*100;
-		var newY = pane2.y+e.swipeY*100;
-		if (newX > stageW-pane2.width ||
-			newX < 0 ||
-			newY > stageH-pane2.height ||
-			newY < 0) {
-			return;
-		}
-
-		var ticker = createjs.Ticker.on("tick", stage);
-		createjs.Tween.get(pane2)
-			.to({x:newX, y:newY}, 500, createjs.Ease.backOut)
-			.call(function() {
-				createjs.Ticker.off("tick", ticker);
-			});
-	});
-}
+	pane2.show();
+	}
 
 var width = stageW/2;
 var height = stageH/2;
@@ -293,15 +268,9 @@ rect.regY=height;
 var bounds = rect.getBounds();
 textbox.addChildAt(rect,0);
 
-var pane = new zim.Pane(stage, 600, 800, explanation, "white");
+var pane = new zim.Pane(stage, 300, 200, explanation, "white");
 textbox.addChildAt(pane,0);
 pane.show();
-var b = text.getBounds();
-pane.x=width - b.width/2;
-pane.y=height - b.height/2;
-text.x = width - b.width/2;
-text.y = height - b.height/2;
-textbox.addChildAt(text,1);
 stage.update();
 
 var ticker = createjs.Ticker.on("tick", stage);
