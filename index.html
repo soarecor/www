@@ -1,58 +1,320 @@
+
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8" />
-<title>Mobile Test</title>
-
-<!-- for CreateJS and ZIMjs http://zimjs.com - free to modify - Dan Zen 2015 -->
-<!-- see http://zimjs.com/templates for more templates and meta tags -->
-
-<script type="text/javascript" src="cordova.js"></script>
-
-<script>var zon = true; // true for comments from zim code</script>
-<script src="js/createjs-2015.11.26.min.js"></script><!-- add _doc to see code -->
-<script src="js/zim_2.4.js"></script>
-<!-- or can go to zimjs.com and createjs.com for individual modules -->
+<meta charset="utf-8">
+<title>IC Advanced Basics - LOGIC Answer</title>
 
 <style>
-	body {margin:0px; padding:0px; background-color:#000;}
-	#myCanvas {position:absolute; background-color:grey;}
+	body {margin:0px; padding:0px; background-color:#ccc; overflow:hidden;}
+	#myCanvas {position:absolute; left:0px; top:0px; background-color:#ccc;}
 </style>
 
+<script src="js/createjs-2015.11.26.min.js"></script>
+<script src="js/mobile.js"></script>
+
 <script>
+window.addEventListener("load", function() {
 
-// SCALING OPTIONS
-// "none"		sets canvas and stage to dimensions and does not scale if window changes
-// "fit"		sets canvas and stage to dimensions and scales to fit inside window size
-// "outside"	sets canvas and stage to dimensions and scales to fit outside window size
-// "full"		sets canvas and stage to window size (canvas is actually set to screen size)
+		var stageW;
+		var stageH;
+		var ready = false;
+		var resize;
+		var orientation;
+		var num = 5;
+		var check= [];
 
-var scaling = "fit"; // fit scales to fit the browser window while keeping the aspect ratio
-var width = 640;
-var height = 960;
-var frame = new zim.Frame(scaling, width, height);
-frame.on("ready", function() {
-	zog("ready from ZIM Frame");
+		makeCanvas();
 
-	var stage = frame.stage;
-	var stageW = frame.width;
-	var stageH = frame.height;
+		var stage = new createjs.Stage("myCanvas");
+		stage.enableMouseOver(10);  // leave out if mobile
+		createjs.Touch.enable(stage, true);
+		sizeStage();
 
-	// put your code here (you can delete this code)
+var array=["h","e","l","l","o"];
+var shuffled= mobile.shuffle(["h","e","l","l","o"]);
+console.log(shuffled);
+console.log(array);
 
-var c = new zim.Circle(100, "white");
-stage.addChild(c);
-zim.centerReg(c,stage)
+// put this in a function as we will call it again on resize
+var one = new createjs.Container();
+stage.addChild(one);
+var s4 = new createjs.Shape();
+s4.x = 100;
+s4.y = 500;
+s4.graphics.f("red").drawCircle(0,0,30);
+one.addChild(s4);
+stage.update();
 
-zim.drag(c);
+var t1 = new createjs.Text("Check", "30px arial", "white");
+t1.text=shuffled[0];
+one.addChildAt(t1,0);
+t1.x = 100;
+t1.y = 500;
+var t1s = new createjs.Text("Check", "30px arial", "white");
+t1s.text=array[0];
+one.addChildAt(t1s,2);
+t1s.x = 100;
+t1s.y = 500;
 
-	stage.update();
+s4.on("click", function(e) {
+	createjs.Tween.get(s4)
+		.to({x:150}, 400)
+		.to({x:100}, 400);
+		createjs.Tween.get(t1s)
+			.to({x:150}, 400)
+			.to({x:100}, 400);
+			check.push(shuffled[0]);
+			console.log(check);
+			checkArrayLength(check);
+		stage.update();
+});
 
-}); // end of ready
+var two = new createjs.Container();
+stage.addChild(two);
+var s3 = new createjs.Shape();
+s3.x = 100;
+s3.y = 400;
+s3.graphics.f("red").drawCircle(0,0,30);
+two.addChild(s3);
+stage.update();
+
+var t2 = new createjs.Text("Check", "30px arial", "white");
+t2.text=shuffled[1];
+two.addChildAt(t2,0);
+t2.x = 100;
+t2.y = 400;
+var t2s = new createjs.Text("Check", "30px arial", "white");
+t2s.text=array[1];
+two.addChildAt(t2s,2);
+t2s.x = 100;
+t2s.y = 400;
+stage.update();
+
+s3.on("click", function(e) {
+	createjs.Tween.get(s3)
+		.to({x:150}, 400)
+		.to({x:100}, 400);
+		createjs.Tween.get(t2s)
+			.to({x:150}, 400)
+			.to({x:100}, 400);
+			check.push(shuffled[1]);
+			checkArrayLength(check);
+			console.log(check);
+		stage.update();
+});
+
+var three = new createjs.Container();
+stage.addChild(three);
+var s2 = new createjs.Shape();
+s2.x = 100;
+s2.y = 300;
+s2.graphics.f("red").drawCircle(0,0,30);
+three.addChild(s2);
+stage.update();
+
+var t3 = new createjs.Text("Check", "30px arial", "white");
+t3.text=shuffled[2];
+three.addChildAt(t3,0);
+t3.x = 100;
+t3.y = 300;
+var t3s = new createjs.Text("Check", "30px arial", "white");
+t3s.text=array[2];
+three.addChildAt(t3s,2);
+t3s.x = 100;
+t3s.y = 300;
+stage.update();
+
+s2.on("click", function(e) {
+	createjs.Tween.get(s2)
+		.to({x:150}, 400)
+		.to({x:100}, 400);
+		createjs.Tween.get(t3s)
+			.to({x:150}, 400)
+			.to({x:100}, 400);
+			check.push(shuffled[2]);
+			checkArrayLength(check);
+			console.log(check);
+		stage.update();
+});
+
+
+var four = new createjs.Container();
+stage.addChild(four);
+var s1 = new createjs.Shape();
+s1.x = 100;
+s1.y = 200;
+s1.graphics.f("red").drawCircle(0,0,30);
+four.addChild(s1);
+stage.update();
+
+var t4 = new createjs.Text("Check", "30px arial", "white");
+t4.text=shuffled[3];
+four.addChildAt(t4,0);
+t4.x = 100;
+t4.y = 200;
+var t4s = new createjs.Text("Check", "30px arial", "white");
+t4s.text=array[3];
+four.addChildAt(t4s,2);
+t4s.x = 100;
+t4s.y = 200;
+stage.update();
+
+s1.on("click", function(e) {
+	createjs.Tween.get(s1)
+		.to({x:150}, 400)
+		.to({x:100}, 400);
+		createjs.Tween.get(t4s)
+			.to({x:150}, 400)
+			.to({x:100}, 400);
+			check.push(shuffled[3]);
+			checkArrayLength(check);
+			console.log(check);
+		stage.update();
+});
+
+
+var five = new createjs.Container();
+stage.addChild(five);
+var s = new createjs.Shape();
+s.x = 100;
+s.y = 100;
+s.graphics.f("red").drawCircle(0,0,30);
+five.addChild(s);
+stage.update();
+
+var t4 = new createjs.Text("Check", "30px arial", "white");
+t4.text=shuffled[4];
+five.addChildAt(t4,0);
+t4.x = 100;
+t4.y = 100;
+var t5s = new createjs.Text("Check", "30px arial", "white");
+t5s.text=array[4];
+five.addChildAt(t5s,2);
+t5s.x = 100;
+t5s.y = 100;
+stage.update();
+
+s.on("click", function(e) {
+	createjs.Tween.get(s)
+		.to({x:150}, 400)
+		.to({x:100}, 400);
+		createjs.Tween.get(t5s)
+			.to({x:150}, 400)
+			.to({x:100}, 400);
+			check.push(shuffled[4]);
+			checkArrayLength(check);
+			console.log(check);
+		stage.update();
+	});
+
+	var text = new createjs.Text("check", "60px arial", "white");
+
+stage.addEventListener("click", function(ev){
+	if (check.length==0){
+		setTimeout(function(){
+			text.alpha=0;}
+		, 2000);
+	}
+});
+	function checkArrayLength(check){
+	if (check.length>4) {
+	if (check.toString()==array.toString()){
+		console.log(check.toString());
+		console.log(array.toString());
+		console.log("won!");
+		check.length=0;
+		text.text="won!";
+		text.alpha=1;
+	}
+	else if (check.toString()!=array.toString()){
+		console.log(check.toString());
+		console.log(array.toString());
+		console.log("lost");
+		text.text="lost!";
+		text.alpha=1;
+		check.length=0;
+	}
+	}
+}
+setTimeout(function(){
+	{if (check.length==0)
+	text.alpha=0;}
+}, 1000);
+
+
+var width = stageW/2;
+var height = stageH/2;
+var textbox = new createjs.Container();
+stage.addChildAt(textbox,0);
+
+var rect = new createjs.Shape();
+var bounds= rect.getBounds();
+console.log(bounds);
+rect.graphics.beginFill('#666666').drawRect(0, 0, width, height);
+rect.regX= width;
+rect.regY=height;
+var bounds = rect.getBounds();
+textbox.addChildAt(rect,0);
+
+var one = new createjs.Container();
+
+var b = text.getBounds();
+text.x = width - b.width/2;
+text.y = height - b.height/2;
+textbox.addChildAt(text,1);
+stage.update();
+
+var ticker = createjs.Ticker.on("tick", stage);
+
+function makeCanvas() {
+	var canvas = document.createElement("canvas");
+	canvas.setAttribute("id", "myCanvas");
+
+	largest = Math.max(window.innerWidth, screen.width, window.innerHeight, screen.height);
+	if (!/ip(hone|od|ad)/i.test(navigator.userAgent)) largest *= 3; // handle up to three monitors
+	canvas.setAttribute("width", largest);
+	canvas.setAttribute("height", largest);
+
+	document.body.appendChild(canvas);
+
+	var a = function(e) {
+		if (!e) e = event;
+		if (e.keyCode && (e.keyCode >= 32 && e.keyCode <= 40)) e.preventDefault();
+	}
+	var b = function(e) {
+		if (!e) e = event;
+		e.preventDefault();
+	}
+	var c = b;
+	window.addEventListener("keydown", a);
+	window.addEventListener("mousewheel", b);
+	window.addEventListener("DOMMouseScroll", c);
+	window.addEventListener('resize', function() {
+		sizeStage();
+		if (/android|nexus/i.test(navigator.userAgent)) {
+			setTimeout(function() {
+				sizeStage();
+			}, 500); // to catch delayed screen sizes
+		}
+	});
+}
+
+function sizeStage() {
+	stageW = isNaN(window.innerWidth) ? window.clientWidth : window.innerWidth;
+	stageH = isNaN(window.innerHeight) ? window.clientHeight : window.innerHeight;
+	orientation = (stageW>stageH) ? "horizontal" : "vertical";
+	if (stage) stage.setBounds(0,0,stageW,stageH);
+	if (ready) resize();
+}
+
+
+
+
+});
+
 </script>
 </head>
-
 <body>
-<!-- canvas with id="myCanvas" is made by zim Frame -->
 </body>
 </html>
