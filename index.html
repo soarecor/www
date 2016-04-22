@@ -18,7 +18,7 @@
 
 <style>
 	body {margin:0px; padding:0px; background-color:#000;}
-	#myCanvas {position:absolute; background-color:lightgrey;}
+	#myCanvas {position:absolute; background-color:gainsboro;}
 </style>
 
 <script>
@@ -256,7 +256,7 @@ var pane2;
 
 function createPane(dialog){
 	var label = new zim.Label(dialog, 20 , "helvetica", "grey", null, null, null, "left");
-	pane2 = new zim.Pane(stage, 200, 200, label, "white");
+	pane2 = new zim.Pane(stage, 200, 200, label, "white",null, null, null, 3, null, -1);
 	textbox.addChildAt(pane2,0);
 	pane2.show();
 	}
