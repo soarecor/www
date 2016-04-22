@@ -18,7 +18,7 @@
 
 <style>
 	body {margin:0px; padding:0px; background-color:#000;}
-	#myCanvas {position:absolute; background-color:grey;}
+	#myCanvas {position:absolute; background-color:lightgrey;}
 </style>
 
 <script>
@@ -48,7 +48,7 @@ console.log(array);
 var one = new createjs.Container();
 stage.addChild(one);
 var s4 = new createjs.Shape();
-s4.x = 100;
+s4.x = 140;
 s4.y = 500;
 s4.graphics.f("red").drawCircle(0,0,30);
 one.addChild(s4);
@@ -57,21 +57,21 @@ stage.update();
 var t1 = new createjs.Text("Check", "30px arial", "white");
 t1.text=shuffled[0];
 one.addChildAt(t1,0);
-t1.x = 100;
+t1.x = 140;
 t1.y = 500;
 var t1s = new createjs.Text("Check", "30px arial", "white");
 t1s.text=array[0];
 one.addChildAt(t1s,2);
-t1s.x = 100;
+t1s.x = 140;
 t1s.y = 500;
 
 s4.on("click", function(e) {
 	createjs.Tween.get(s4)
-		.to({x:150}, 400)
-		.to({x:100}, 400);
+		.to({x:190}, 400)
+		.to({x:140}, 400);
 		createjs.Tween.get(t1s)
-			.to({x:150}, 400)
-			.to({x:100}, 400);
+			.to({x:190}, 400)
+			.to({x:140}, 400);
 			check.push(shuffled[0]);
 			console.log(check);
 			checkArrayLength(check);
@@ -81,7 +81,7 @@ s4.on("click", function(e) {
 var two = new createjs.Container();
 stage.addChild(two);
 var s3 = new createjs.Shape();
-s3.x = 100;
+s3.x = 140;
 s3.y = 400;
 s3.graphics.f("red").drawCircle(0,0,30);
 two.addChild(s3);
@@ -90,22 +90,22 @@ stage.update();
 var t2 = new createjs.Text("Check", "30px arial", "white");
 t2.text=shuffled[1];
 two.addChildAt(t2,0);
-t2.x = 100;
+t2.x = 140;
 t2.y = 400;
 var t2s = new createjs.Text("Check", "30px arial", "white");
 t2s.text=array[1];
 two.addChildAt(t2s,2);
-t2s.x = 100;
+t2s.x = 140;
 t2s.y = 400;
 stage.update();
 
 s3.on("click", function(e) {
 	createjs.Tween.get(s3)
-		.to({x:150}, 400)
-		.to({x:100}, 400);
+		.to({x:190}, 400)
+		.to({x:140}, 400);
 		createjs.Tween.get(t2s)
-			.to({x:150}, 400)
-			.to({x:100}, 400);
+			.to({x:190}, 400)
+			.to({x:140}, 400);
 			check.push(shuffled[1]);
 			checkArrayLength(check);
 			console.log(check);
@@ -115,7 +115,7 @@ s3.on("click", function(e) {
 var three = new createjs.Container();
 stage.addChild(three);
 var s2 = new createjs.Shape();
-s2.x = 100;
+s2.x = 140;
 s2.y = 300;
 s2.graphics.f("red").drawCircle(0,0,30);
 three.addChild(s2);
@@ -124,22 +124,22 @@ stage.update();
 var t3 = new createjs.Text("Check", "30px arial", "white");
 t3.text=shuffled[2];
 three.addChildAt(t3,0);
-t3.x = 100;
+t3.x = 140;
 t3.y = 300;
 var t3s = new createjs.Text("Check", "30px arial", "white");
 t3s.text=array[2];
 three.addChildAt(t3s,2);
-t3s.x = 100;
+t3s.x = 140;
 t3s.y = 300;
 stage.update();
 
 s2.on("click", function(e) {
 	createjs.Tween.get(s2)
-		.to({x:150}, 400)
-		.to({x:100}, 400);
+		.to({x:190}, 400)
+		.to({x:140}, 400);
 		createjs.Tween.get(t3s)
-			.to({x:150}, 400)
-			.to({x:100}, 400);
+			.to({x:190}, 400)
+			.to({x:140}, 400);
 			check.push(shuffled[2]);
 			checkArrayLength(check);
 			console.log(check);
@@ -150,7 +150,7 @@ s2.on("click", function(e) {
 var four = new createjs.Container();
 stage.addChild(four);
 var s1 = new createjs.Shape();
-s1.x = 100;
+s1.x = 140;
 s1.y = 200;
 s1.graphics.f("red").drawCircle(0,0,30);
 four.addChild(s1);
@@ -159,22 +159,22 @@ stage.update();
 var t4 = new createjs.Text("Check", "30px arial", "white");
 t4.text=shuffled[3];
 four.addChildAt(t4,0);
-t4.x = 100;
+t4.x = 140;
 t4.y = 200;
 var t4s = new createjs.Text("Check", "30px arial", "white");
 t4s.text=array[3];
 four.addChildAt(t4s,2);
-t4s.x = 100;
+t4s.x = 140;
 t4s.y = 200;
 stage.update();
 
 s1.on("click", function(e) {
 	createjs.Tween.get(s1)
-		.to({x:150}, 400)
-		.to({x:100}, 400);
+		.to({x:190}, 400)
+		.to({x:140}, 400);
 		createjs.Tween.get(t4s)
-			.to({x:150}, 400)
-			.to({x:100}, 400);
+			.to({x:190}, 400)
+			.to({x:140}, 400);
 			check.push(shuffled[3]);
 			checkArrayLength(check);
 			console.log(check);
@@ -185,31 +185,31 @@ s1.on("click", function(e) {
 var five = new createjs.Container();
 stage.addChild(five);
 var s = new createjs.Shape();
-s.x = 100;
+s.x = 140;
 s.y = 100;
 s.graphics.f("red").drawCircle(0,0,30);
 five.addChild(s);
 stage.update();
 
-var t4 = new createjs.Text("Check", "30px arial", "white");
-t4.text=shuffled[4];
-five.addChildAt(t4,0);
-t4.x = 100;
-t4.y = 100;
+var t5 = new createjs.Text("Check", "30px arial", "white");
+t5.text=shuffled[4];
+five.addChildAt(t5,0);
+t5.x = 140;
+t5.y = 100;
 var t5s = new createjs.Text("Check", "30px arial", "white");
 t5s.text=array[4];
 five.addChildAt(t5s,2);
-t5s.x = 100;
+t5s.x = 140;
 t5s.y = 100;
 stage.update();
 
 s.on("click", function(e) {
 	createjs.Tween.get(s)
-		.to({x:150}, 400)
-		.to({x:100}, 400);
+		.to({x:190}, 400)
+		.to({x:140}, 400);
 		createjs.Tween.get(t5s)
-			.to({x:150}, 400)
-			.to({x:100}, 400);
+			.to({x:190}, 400)
+			.to({x:140}, 400);
 			check.push(shuffled[4]);
 			checkArrayLength(check);
 			console.log(check);
@@ -224,24 +224,30 @@ stage.addEventListener("click", function(ev){
 	}
 });
 
-var explanation= "Spell hello in the right order to win";
+var width = stageW/2;
+var height = stageH/2;
+var textbox = new createjs.Container();
+stage.addChildAt(textbox,0);
+
+
+var explanation= "SPELLO \n  \n Spell hello in the right \n order, by pressing each circle to win. \n When pressed, the circle will move \n to the right revealing a \n letter below. Spell hello, without \n losing focus!";
+var label = new zim.Label(explanation, 16 , "helvetica", "grey", null, null, null, "left");
+
+var pane = new zim.Pane(stage, 300, 500, label, "white");
+textbox.addChildAt(pane,0);
+pane.show();
+
 var dialog;
 
 	function checkArrayLength(check){
 	if (check.length>4) {
 	if (check.toString()==array.toString()){
-		console.log(check.toString());
-		console.log(array.toString());
-		console.log("won!");
 		check.length=0;
-		createPane("won")
+		createPane("Won!")
 	}
 	else if (check.toString()!=array.toString()){
-		console.log(check.toString());
-		console.log(array.toString());
-		console.log("lost");
 		check.length=0;
-		createPane("lost");
+		createPane("lost! Try again..");
 	}
 	}
 }
@@ -249,15 +255,11 @@ var dialog;
 var pane2;
 
 function createPane(dialog){
-	pane2 = new zim.Pane(stage, 200, 200, dialog, "white");
+	var label = new zim.Label(dialog, 20 , "helvetica", "grey", null, null, null, "left");
+	pane2 = new zim.Pane(stage, 200, 200, label, "white");
 	textbox.addChildAt(pane2,0);
 	pane2.show();
 	}
-
-var width = stageW/2;
-var height = stageH/2;
-var textbox = new createjs.Container();
-stage.addChildAt(textbox,0);
 
 var rect = new createjs.Shape();
 var bounds= rect.getBounds();
@@ -268,11 +270,9 @@ rect.regY=height;
 var bounds = rect.getBounds();
 textbox.addChildAt(rect,0);
 
-var pane = new zim.Pane(stage, 300, 200, explanation, "white");
-textbox.addChildAt(pane,0);
-pane.show();
-stage.update();
 
+stage.update();
+createjs.Ticker.setFPS(20);
 var ticker = createjs.Ticker.on("tick", stage);
 
 function makeCanvas() {
@@ -285,7 +285,6 @@ function makeCanvas() {
 	canvas.setAttribute("height", largest);
 
 	document.body.appendChild(canvas);
-
 	var a = function(e) {
 		if (!e) e = event;
 		if (e.keyCode && (e.keyCode >= 32 && e.keyCode <= 40)) e.preventDefault();
@@ -315,14 +314,9 @@ function sizeStage() {
 	if (stage) stage.setBounds(0,0,stageW,stageH);
 	if (ready) resize();
 }
-
-
-
-
-});</script>
+});
+</script>
 </head>
-
 <body>
-<!-- canvas with id="myCanvas" is made by zim Frame -->
 </body>
 </html>
